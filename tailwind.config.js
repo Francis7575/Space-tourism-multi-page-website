@@ -18,6 +18,8 @@ export default {
         'lightgray': 'rgba(11, 13, 23, 0.15)',
         'second-lightgray': 'rgba(255, 255, 255, 0.05)',
         'white-25': 'rgba(255, 255, 255, 0.25)',
+        'white-15': 'rgba(255, 255, 255, 0.15)',
+        'white-50': 'rgba(255, 255, 255, 0.50)',
       },
       backgroundImage: {
         'home-mobile': "url('/assets/home/background-home-mobile.jpg')",

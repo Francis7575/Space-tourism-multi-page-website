@@ -1,9 +1,12 @@
 <template lang="html">
   <section
-    class="pb-[1.5rem] pl-[40px] lg:pl-[64px] xl:max-w-[1110px] xl:mx-auto mt-[40px]"
+    class="pb-[1.5rem] animate-slide-up md:pl-[40px] lg:pl-[64px] xl:max-w-[1110px] xl:mx-auto mt-[40px]"
   >
-    <Heading />
-    <div v-if="filteredDestination" class="text-white xl:flex xl:justify-between xl:gap-[32px]">
+    <Heading title="PICK YOUR DESTINATION" id="01" />
+    <div
+      v-if="filteredDestination"
+      class="text-white xl:flex xl:justify-between xl:gap-[32px]"
+    >
       <img
         :src="filteredDestination.images.png"
         :alt="filteredDestination.images.alt"
@@ -12,8 +15,10 @@
       <div
         class="flex flex-col items-center xl:items-start max-w-[550px] mx-auto mt-[1.5rem] px-[1.5rem] xl:mx-0 md:px-0"
       >
-      <Buttons />
-        <h2 class="font-bellefair uppercase text-[3.5rem] mb-4 md:text-[5rem] xl:mt-[40px xl:text-[6rem]">
+        <Buttons />
+        <h2
+          class="font-bellefair uppercase text-[3.5rem] mb-4 md:text-[5rem] xl:mt-[40px] mt-[24px] xl:text-[6rem]"
+        >
           {{ filteredDestination.name }}
         </h2>
         <p
@@ -57,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import Heading from "../components/destinations/Heading.vue";
+import Heading from "../components/shared/Heading.vue";
 import Buttons from "../components/destinations/Buttons.vue";
 import dataJson from "../assets/data.json";
 import { useRoute } from "vue-router";
@@ -81,11 +86,4 @@ const filteredDestination = computed(() =>
     (dest) => dest.name.toLowerCase() === destinationName.value.toLowerCase()
   )
 );
-
-defineExpose({
-  Heading,
-  Buttons,
-  filteredDestination,
-});
 </script>
-<style lang=""></style>
