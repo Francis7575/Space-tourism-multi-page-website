@@ -16,7 +16,8 @@ export default {
         'lightblue': '#D0D6F9',
         'black': '#0B0D17',
         'lightgray': 'rgba(11, 13, 23, 0.15)',
-        'second-lightgray': 'rgba(255, 255, 255, 0.05)'
+        'second-lightgray': 'rgba(255, 255, 255, 0.05)',
+        'white-25': 'rgba(255, 255, 255, 0.25)',
       },
       backgroundImage: {
         'home-mobile': "url('/assets/home/background-home-mobile.jpg')",

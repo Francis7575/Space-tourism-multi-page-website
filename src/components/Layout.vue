@@ -9,25 +9,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect, computed } from "vue";
+import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
 import Navbar from "./shared/Navbar.vue";
 
 const route = useRoute();
 const backgroundImage = ref(""); // Default background
 
-watchEffect(() => {
+watch(() => route.path, (newPath) => {
   // Update the background image based on the route
-  if (route.path === "/") {
-    backgroundImage.value = "home";
-  } else if (route.path === "/destination") {
-    backgroundImage.value = "destination";
-  } else if (route.path === "/crew") {
-    backgroundImage.value = "crew";
-  } else if (route.path === "/technology") {
-    backgroundImage.value = "technology";
+  if (newPath === '/') {
+    backgroundImage.value = 'home';
+  } else if (newPath.startsWith('/destination')) { 
+    backgroundImage.value = 'destination';
+  } else if (newPath === '/crew') {
+    backgroundImage.value = 'crew';
+  } else if (newPath === '/technology') {
+    backgroundImage.value = 'technology';
   }
-});
+}, { immediate: true }); // Trigger the watch immediately
 
 const backgroundClass = computed(() => {
   const baseClass = " bg-cover bg-no-repeat bg-center min-h-screen ";

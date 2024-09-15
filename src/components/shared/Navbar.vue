@@ -2,10 +2,15 @@
   <header
     class="flex justify-between items-center md:items-start lg:items-center p-[1.5rem] md:p-0 md:w-full lg:pt-[40px]"
   >
-    <router-link to="/" class="md:px-[40px] pt-[1.5rem] lg:pt-0 lg:px-0 lg:pl-[64px]" >
+    <router-link
+      to="/"
+      class="md:px-[40px] md:pt-[1.5rem] lg:pt-0 lg:px-0 lg:pl-[64px]"
+    >
       <img :src="logo" alt="Space Tourism Logo" class="w-[40px] md:w-[48px]" />
     </router-link>
-    <div class="hidden xl:block flex-1 h-[1px] bg-white/25 ml-12 -mr-12 relative z-10"></div>
+    <div
+      class="hidden xl:block flex-1 h-[1px] bg-white/25 ml-12 -mr-12 relative z-10"
+    ></div>
     <div class="w-full md:max-w-[736px]">
       <nav
         :class="{
@@ -58,6 +63,7 @@ interface NavOption {
   id: string;
   name: string;
   path: string;
+  redirect?: string
 }
 
 const isMenuOpen = ref(false);
@@ -65,7 +71,7 @@ const route = useRoute();
 
 const navOptions: NavOption[] = [
   { id: "00", name: "Home", path: "" },
-  { id: "01", name: "Destination", path: "destination" },
+  { id: "01", name: "Destination", path: "destination"  },
   { id: "02", name: "Crew", path: "crew" },
   { id: "03", name: "Technology", path: "technology" },
 ];
@@ -79,7 +85,15 @@ const closeMenuFunc = () => {
 };
 
 const isActive = (path: string): boolean => {
-  return route.path === `/${path}`;
+  const currentPath = route.path;
+  
+  // Handle exact match for top-level routes
+  if (path === "") {
+    return currentPath === "/";
+  }
+  
+  // Handle prefix match for nested routes
+  return currentPath.startsWith(`/${path}`) && currentPath !== '/';
 };
 
 // Use defineExpose to expose variables to the template
@@ -109,34 +123,34 @@ defineExpose({
   transform: translateX(100%);
 }
 
-.border-highlight {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.border-highlight::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -34px;
-  width: 100%;
-  border-bottom: 2px solid #fff;
-  transform: scaleX(0); /* Start with zero scale */
-  transform-origin: bottom left;
-  transition: transform 0.3s ease; /* Transition for smooth effect */
-}
-
-.border-highlight:hover::after {
-  border-bottom: 2px solid #ffffff7f;
-  transform: scaleX(1);
-}
-
-.border-highlight.active::after {
-  transform: scaleX(1); /* Scale to full width when active */
-  border-bottom: 2px solid #fff; /* Make sure the border is visible */
-}
-
 @media (min-width: 768px) {
+  .border-highlight {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .border-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -34px;
+    width: 100%;
+    border-bottom: 2px solid #fff;
+    transform: scaleX(0); /* Start with zero scale */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease; /* Transition for smooth effect */
+  }
+
+  .border-highlight:hover::after {
+    border-bottom: 2px solid #ffffff7f;
+    transform: scaleX(1);
+  }
+
+  .border-highlight.active::after {
+    transform: scaleX(1); /* Scale to full width when active */
+    border-bottom: 2px solid #fff; /* Make sure the border is visible */
+  }
+
   .slide-enter,
   .slide-exit {
     transform: none;

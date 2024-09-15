@@ -1,37 +1,37 @@
-type Destination = {
+export type Destination = {
   name: string;
   images: {
     png: string;
     webp: string;
-    alt: string;
+    alt?: string;
   };
   description: string;
   distance: string;
   travel: string;
 };
 
-type CrewMember = {
+export type CrewMember = {
   name: string;
   images: {
     png: string;
     webp: string;
-    alt: string;
+    alt?: string;
   };
   role: string;
   bio: string;
 };
 
-type Technology = {
+export type Technology = {
   name: string;
   images: {
     portrait: string;
     landscape: string;
-    alt: string;
+    alt?: string;
   };
   description: string;
 };
 
-export type SpaceData = {
+export type spaceTypes = {
   destinations: Destination[];
   crew: CrewMember[];
   technology: Technology[];

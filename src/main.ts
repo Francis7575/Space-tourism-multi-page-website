@@ -5,7 +5,8 @@ import App from './App.vue'
 
 const routes = [
   { path: "/", component: () => import('./pages/Home.vue')},
-  { path: "/destination",  component: () => import('./pages/Destination.vue') },
+  { path: "/destination", redirect: '/destination/moon'},
+  { path: "/destination/:name",  component: () => import('./pages/DestinationDetail.vue') },
   { path: "/crew",  component: () => import('./pages/Crew.vue') },
   { path: "/technology",  component: () => import('./pages/Technology.vue') },
 ];
