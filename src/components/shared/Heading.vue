@@ -5,7 +5,7 @@
     >
       <span class="tracking-[4.725px] font-bold text-white-25">{{ id }}</span>
       <h1
-        class="md:tracking-[3px] tracking-[2.4px] lg:tracking-[4px] text-white"
+        class="md:tracking-[3px] uppercase tracking-[2.4px] lg:tracking-[4px] text-white"
       >
         {{ title }}
       </h1>
