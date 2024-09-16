@@ -1,4 +1,4 @@
-<template lang="">
+<template lang="html">
   <section>
     <div
       class="flex justify-center mt-[2rem] items-center gap-[2rem] font-barlow-condensed"
@@ -27,17 +27,11 @@ import { useRoute } from "vue-router";
 const destinations = ref(dataJson.destinations);
 const route = useRoute();
 
-const isActive = (path: string): boolean => {
-  const activePath = `/${path.toLowerCase()}`;
-  // console.log('Active Path:', activePath);
-  // console.log('Current Route Path:', route.path);
-  return route.path === activePath;
+const isActive = (name: string) => {
+  const currentPath = route.path;
+  return currentPath === `/destination/${name}`;  // Check if the current path matches the dynamic destination route
 };
 
-defineExpose({
-  destinations,
-  isActive
-});
 </script>
 
 <style scoped>
@@ -67,5 +61,4 @@ defineExpose({
     transform: scaleX(1); /* Scale to full width when active */
     border-bottom: 2px solid #fff; /* Make sure the border is visible */
   }
-
 </style>

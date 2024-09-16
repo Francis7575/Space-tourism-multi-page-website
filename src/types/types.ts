@@ -24,9 +24,11 @@ export type CrewMember = {
 export type Technology = {
   name: string;
   images: {
+    mobile: string 
+    tablet: string
+    desktop: string
     portrait: string;
     landscape: string;
-    alt?: string;
   };
   description: string;
 };

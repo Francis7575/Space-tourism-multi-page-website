@@ -12,6 +12,7 @@ export default {
         'bellefair': ["Bellefair", 'serif']
       },
       colors: {
+        'white': '#ffffff',
         'black-russian': 'rgb(27, 27, 29)',
         'lightblue': '#D0D6F9',
         'black': '#0B0D17',

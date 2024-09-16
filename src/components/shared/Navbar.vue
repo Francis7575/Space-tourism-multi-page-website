@@ -1,4 +1,4 @@
-<template lang="">
+<template lang="html">
   <header
     class="flex justify-between items-center md:items-start lg:items-center p-[1.5rem] md:p-0 md:w-full lg:pt-[40px]"
   >
@@ -13,11 +13,11 @@
     ></div>
     <div class="w-full md:max-w-[736px]">
       <nav
-        :class="{
-          navbar: true,
-          'slide-enter': isMenuOpen,
-          'slide-exit': !isMenuOpen,
-        }"
+          :class="{
+            navbar: true,
+            'slide-enter': isMenuOpen,
+            'slide-exit': !isMenuOpen,
+          }"
         class="navbar font-barlow-condensed bg-lightgray w-[254px] md:h-[6rem] md:flex md:justify-center md:items-center md:w-full md:bg-black-russian lg:bg-second-lightgray min-h-screen fixed top-0 right-0 md:static md:min-h-0"
       >
         <ul
@@ -96,16 +96,6 @@ const isActive = (path: string): boolean => {
   return currentPath.startsWith(`/${path}`) && currentPath !== '/';
 };
 
-// Use defineExpose to expose variables to the template
-defineExpose({
-  logo,
-  openMenu,
-  closeMenu,
-  navOptions,
-  toggleMenu,
-  closeMenuFunc,
-  isActive,
-});
 </script>
 
 <style scoped>
@@ -150,10 +140,10 @@ defineExpose({
     transform: scaleX(1); /* Scale to full width when active */
     border-bottom: 2px solid #fff; /* Make sure the border is visible */
   }
+}
 
   .slide-enter,
   .slide-exit {
     transform: none;
   }
-}
 </style>
