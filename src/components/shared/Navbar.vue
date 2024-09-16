@@ -140,10 +140,10 @@ const isActive = (path: string): boolean => {
     transform: scaleX(1); /* Scale to full width when active */
     border-bottom: 2px solid #fff; /* Make sure the border is visible */
   }
-}
 
   .slide-enter,
   .slide-exit {
     transform: none;
   }
+}
 </style>

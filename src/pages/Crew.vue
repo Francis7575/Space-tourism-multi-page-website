@@ -5,13 +5,13 @@
     <Heading id="02" title="Meet your crew" />
 
     <div
-      class="lg:flex lg:items-center lg:gap-[2rem] lg:justify-between lg:min-h-screen"
+      class="lg:flex lg:items-center lg:gap-[2rem] lg:justify-between lg:mt-[24px]"
     >
       <div>
         <Transition mode="out-in" v-bind="fadeTransition">
           <div
             :key="selectedCrew.name"
-            class="mt-[64px]  lg:mt-0 flex flex-col lg:items-start lg:text-left items-center px-[1.5rem] md:px-0 text-center"
+            class="mt-[64px]  lg:mt-[80px] flex flex-col lg:items-start lg:text-left items-center px-[1.5rem] md:px-0 text-center"
           >
             <span
               class="text-white-50 font-bellefair uppercase text-[1.12rem] md:text-[1.5rem] lg:text-[2rem]"
